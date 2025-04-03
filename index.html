@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Umarabad FC | HMT, Srinagar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #FFD700;
@@ -17,12 +18,16 @@
 
         /* Base Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--off-white);
             color: var(--black);
             line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Header with Logo */
@@ -49,19 +54,10 @@
             overflow: hidden;
         }
 
-        .logo-placeholder {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--black);
-        }
-
-        /* Actual logo styling (uncomment when you add your logo) */
-        /*
         .logo-container img {
             width: 80%;
             height: auto;
         }
-        */
 
         h1 {
             margin: 0.5rem 0 0;
@@ -117,7 +113,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('team-hero.jpg') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/team-hero.jpg') center/cover;
             height: 60vh;
             display: flex;
             align-items: center;
@@ -156,7 +152,7 @@
 
         .section-title {
             color: var(--black);
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-top: 0;
             margin-bottom: 1.5rem;
             position: relative;
@@ -171,6 +167,103 @@
             width: 50%;
             height: 4px;
             background-color: var(--gold);
+        }
+
+        /* Match Highlight Section */
+        .match-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 2rem;
+            background: linear-gradient(to right, var(--off-white), var(--white));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--gold);
+        }
+
+        .match-highlight-img {
+            flex: 1;
+            min-width: 300px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .match-highlight-info {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .match-highlight-score {
+            font-size: 2rem;
+            color: var(--dark-gold);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Story Section */
+        #story {
+            background: linear-gradient(135deg, var(--white), var(--off-white));
+            border-left: 5px solid var(--gold);
+        }
+
+        #story p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        /* Gallery Slideshow */
+        .gallery-slideshow {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .gallery-slide {
+            display: none;
+            width: 100%;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease;
+        }
+
+        .gallery-slide.active {
+            display: block;
+        }
+
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .gallery-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--dark-gold);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active, .gallery-dot:hover {
+            opacity: 1;
+            transform: scale(1.2);
         }
 
         /* Player Cards */
@@ -265,29 +358,6 @@
             font-weight: 700;
         }
 
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            height: 200px;
-            background-color: #eee;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
         /* Footer */
         footer {
             background: linear-gradient(90deg, var(--black) 0%, var(--dark-gray) 100%);
@@ -364,6 +434,18 @@
             .hero-content h2 {
                 font-size: 2.2rem;
             }
+
+            .gallery-slide {
+                height: 300px;
+            }
+
+            .match-highlight {
+                flex-direction: column;
+            }
+
+            .match-highlight-img {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -371,8 +453,7 @@
     <!-- Header with Logo -->
     <header>
         <div class="logo-container">
-            <!-- REPLACE THIS WITH YOUR ACTUAL LOGO -->
-             <img src="images/logo.png" alt="Umarabad FC Logo" style="width:105%">
+            <img src="images/logo.png" alt="Umarabad FC Logo" style="width:105%">
         </div>
         <h1>UMARABAD FC</h1>
         <p class="tagline">HMT, Srinagar • Since 2019</p>
@@ -404,8 +485,23 @@
         <!-- Our Story Section -->
         <section class="section" id="story">
             <h2 class="section-title">Our Story</h2>
-            <p style="font-size: 1.2rem;" >Umarabad FC is a grassroots football club that has become an integral part of the HMT Srinagar community. Founded in 2019 by a group of friends, we provide a welcoming and supportive environment for young players to learn and grow. We participate in various tournaments at different levels, fostering a sense of camaraderie and pride within our community. Join us in supporting the future of football in Srinagar! </p>
-            <p style="font-size: 1.2rem;">We train hard, play with pride, and represent our neighborhood in local tournaments. Our goal is to nurture talent and bring people together through football.</p>
+            <p>Umarabad FC is a grassroots football club that has become an integral part of the HMT Srinagar community. Founded in 2019 by a group of friends, we provide a welcoming and supportive environment for young players to learn and grow.</p>
+            <p>We participate in various tournaments at different levels, fostering a sense of camaraderie and pride within our community. Join us in supporting the future of football in Srinagar!</p>
+            <p>We train hard, play with pride, and represent our neighborhood in local tournaments. Our goal is to nurture talent and bring people together through football.</p>
+        </section>
+
+        <!-- Match Highlight Section -->
+        <section class="section">
+            <h2 class="section-title">Match Highlight</h2>
+            <div class="match-highlight">
+                <div class="match-highlight-img" style="background-image: url('images/highlights/latest-match.jpg');"></div>
+                <div class="match-highlight-info">
+                    <h3>Umarabad FC vs AL Sabr FC</h3>
+                    <p class="match-details">March 28, 2025 | Maloora Ground</p>
+                    <div class="match-highlight-score">1 - 0</div>
+                    <p>A thrilling victory with a last-minute goal by Sibtain Farooq!</p>
+                </div>
+            </div>
         </section>
 
         <!-- Matches Section -->
@@ -427,7 +523,6 @@
                 </div>
                 <div class="match-result">3-0 (W)</div>
             </div>
-            
         </section>
 
         <!-- Players Section -->
@@ -446,7 +541,7 @@
                 </div>
                 
                 <div class="player-card">
-                    <div class="player-img" style="background-image: url('gk2.jpg');"></div>
+                    <div class="player-img" style="background-image: url('images/players/gk2.jpg');"></div>
                     <div class="player-info">
                         <div class="player-number">22</div>
                         <h3 class="player-name">Bilal Shah</h3>
@@ -458,7 +553,7 @@
             <h3>Defenders</h3>
             <div class="player-grid">
                 <div class="player-card">
-                    <div class="player-img" style="background-image: url('def1.jpg');"></div>
+                    <div class="player-img" style="background-image: url('images/players/def1.jpg');"></div>
                     <div class="player-info">
                         <div class="player-number">4</div>
                         <h3 class="player-name">Adil Bhat</h3>
@@ -467,7 +562,7 @@
                 </div>
                 
                 <div class="player-card">
-                    <div class="player-img" style="background-image: url('def2.jpg');"></div>
+                    <div class="player-img" style="background-image: url('images/players/def2.jpg');"></div>
                     <div class="player-info">
                         <div class="player-number">5</div>
                         <h3 class="player-name">Imran Khan</h3>
@@ -494,7 +589,7 @@
                     <div class="player-img" style="background-image: url('images/players/fw1.png');"></div>
                     <div class="player-info">
                         <div class="player-number">9</div>
-                        <h3 class="player-name">zahi</h3>
+                        <h3 class="player-name">Zahi</h3>
                         <div class="player-position">Right Winger</div>
                     </div>
                 </div>
@@ -506,11 +601,20 @@
             <h2 class="section-title">Gallery</h2>
             <p>Memories from matches, training, and community events.</p>
             
-            <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('images/gallery/gallery1.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/gallery2.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/gallery3.jpg);"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/gallery4.jpg');"></div>
+            <div class="gallery-slideshow">
+                <div class="gallery-slide active" style="background-image: url('images/gallery/gallery1.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/gallery/gallery2.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/gallery/gallery3.jpg');"></div>
+                <div class="gallery-slide" style="background-image: url('images/gallery/gallery4.jpg');"></div>
+            </div>
+            
+            <div class="gallery-controls">
+                <div class="gallery-dots">
+                    <div class="gallery-dot active" onclick="currentSlide(1)"></div>
+                    <div class="gallery-dot" onclick="currentSlide(2)"></div>
+                    <div class="gallery-dot" onclick="currentSlide(3)"></div>
+                    <div class="gallery-dot" onclick="currentSlide(4)"></div>
+                </div>
             </div>
         </section>
     </div>
@@ -525,11 +629,50 @@
             <a href="https://x.com/umarabadfc"><i class="fab fa-twitter"></i></a>
         </div>
         
-        <p>Email: umarabadfc@gmail.com <!--| Phone: +91 7006XXXXXX</p> -->
+        <p>Email: umarabadfc@gmail.com</p>
         <p>&copy; 2019 Umarabad FC. All Rights Reserved.</p>
     </footer>
 
     <!-- Font Awesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    <!-- Gallery Slideshow Script -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("gallery-slide");
+            let dots = document.getElementsByClassName("gallery-dot");
+            
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+        
+        // Auto-advance slides every 5 seconds
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+    </script>
 </body>
 </html>
