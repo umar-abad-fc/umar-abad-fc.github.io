@@ -262,9 +262,42 @@
             color: var(--gold);
             padding: 0.5rem 1.5rem;
             border-radius: 30px;
-            font-weight: 700;
+            font-weig/* Player Card - Uniform Size */
+.player-card {
+    position: relative; /* Needed for badge positioning */
+    height: 320px; /* Fixed height matching other cards */
+    overflow: visible; /* Allows badge to extend beyond */
+}
+
+/* Captain Badge - Positioned Absolutely */
+        .player-card.captain::after {
+            content: "CAPTAIN";
+            position: absolute;
+            top: -12px;
+            right: -15px;
+            background: var(--gold);
+            color: var(--black);
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 2px solid var(--black);
+            z-index: 2;
+            transform: rotate(15deg);
+            /* Prevents card size change: */
+            box-sizing: border-box;
+            max-width: 80px;
+            text-transform: uppercase;
+            font-weight: bold;
         }
 
+        /* Player Image - Consistent Size */
+        .player-img {
+            height: 220px; /* Same as other players */
+            background-size: cover;
+            background-position: center;
+        }ht: 700;
+                }
+        
         /* Gallery */
         .gallery-grid {
             display: grid;
@@ -477,6 +510,15 @@
             </div>
             
             <h3>Midfielders</h3>
+            <div class="player-card captain">
+                <div class="player-img" style="background-image: url('images/players/captain.jpg')"></div>
+                <div class="player-info">
+                    <div class="player-number">7</div>
+                    <h3 class="player-name">Captain Name</h3>
+                    <div class="player-position">Midfielder</div>
+                </div>
+            </div>
+        
             <div class="player-grid">
                 <div class="player-card">
                     <div class="player-img" style="background-image: url('images/players/mid1.png');"></div>
