@@ -264,7 +264,41 @@
             border-radius: 30px;
             font-weight: 700;
         }
+        /* Captain Ribbon Badge */
+        .player-card.captain {
+            position: relative;
+            overflow: visible; /* Allows badge to extend beyond card */
+        }
 
+        .player-card.captain::after {
+            content: "CAPTAIN";
+            position: absolute;
+            top: -12px;
+            right: -15px;
+            background: var(--gold);
+            color: var(--black);
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 15px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            z-index: 10;
+            transform: rotate(15deg);
+            border: 2px solid var(--black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Optional: Animated floating effect */
+        .player-card.captain:hover::after {
+            animation: floatBadge 1.5s ease-in-out infinite;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: rotate(15deg) translateY(0); }
+            50% { transform: rotate(15deg) translateY(-5px); }
+        }
         /* Gallery */
         .gallery-grid {
             display: grid;
@@ -477,6 +511,15 @@
             </div>
             
             <h3>Midfielders</h3>
+            <div class="player-card captain">  <!-- Add 'captain' class -->
+                <div class="player-img" style="background-image: url('images/players/captain.jpg')"></div>
+                <div class="player-info">
+                    <div class="player-number">7</div>
+                    <h3 class="player-name">Team Captain</h3>
+                    <div class="player-position">Midfielder</div>
+                </div>
+            </div>
+
             <div class="player-grid">
                 <div class="player-card">
                     <div class="player-img" style="background-image: url('images/players/mid1.png');"></div>
