@@ -388,6 +388,22 @@
             border-radius: 30px;
             font-weight: 700;
         }
+        
+        /* Match Result Colors */
+        .match-result.win {
+            background-color: #4CAF50; /* Green for wins */
+            color: white;
+        }
+
+        .match-result.draw {
+            background-color: #FFC107; /* Yellow for draws */
+            color: #333;
+        }
+
+        .match-result.loss {
+            background-color: #F44336; /* Red for losses */
+            color: white;
+        }
 
         /* Footer */
         footer {
@@ -643,7 +659,7 @@
                     <div class="match-teams">Umarabad FC vs AL Sabr FC</div>
                     <div class="match-details">March 28, 2025 | Maloora Ground</div>
                 </div>
-                <div class="match-result">1-0 (W)</div>
+                <div class="match-result win">1-0</div>
             </div>
             
             <div class="match-card">
@@ -651,7 +667,7 @@
                     <div class="match-teams">Umarabad FC vs Maloora FC</div>
                     <div class="match-details">January 12, 2025 | Maloora Ground</div>
                 </div>
-                <div class="match-result">3-0 (W)</div>
+                <div class="match-result win">3-0</div>
             </div>
         </section>
 
@@ -881,5 +897,37 @@
             menuIcon.classList.toggle('change');
         }
     </script>
+<script>
+// Auto-classify match results when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const matchResults = document.querySelectorAll('.match-result');
+        
+    matchResults.forEach(result => {
+        // 1. Get the score text (e.g., "1-0")
+        const scoreText = result.textContent.trim();
+            
+        // 2. Split into home and away scores
+        const [homeScore, awayScore] = scoreText.split('-').map(Number);
+            
+        // 3. Remove any existing classes
+        result.classList.remove('win', 'draw', 'loss');
+            
+        // 4. Classify the result
+        if (homeScore > awayScore) {
+            result.classList.add('win');
+            result.title = "Win";
+        } else if (homeScore < awayScore) {
+            result.classList.add('loss');
+            result.title = "Loss";
+        } else {
+            result.classList.add('draw');
+            result.title = "Draw";
+        }
+            
+        // (Optional) Add score for screen readers
+        result.setAttribute('aria-label', `${homeScore}-${awayScore} ${result.title}`);
+    });
+});
+</script>
 </body>
 </html>
