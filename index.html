@@ -15,7 +15,11 @@
             --white: #FFFFFF;
             --off-white: #F5F5F5;
         }
-
+        /* Center alignment for all header elements */
+        header, nav {
+            text-align: center;
+            margin: 0 auto;
+        }
         /* Base Styles */
         body {
             font-family: 'Open Sans', sans-serif;
@@ -88,7 +92,7 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
         }
 
@@ -117,6 +121,11 @@
 
         .nav-links li {
             margin: 0 1rem;
+        }
+
+        .nav-links {
+            margin: 0 auto;  <!-- FIX: Centers the links container -->
+            width: auto;     <!-- Ensures proper centering -->
         }
 
         .nav-links a {
