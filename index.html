@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Umarabad FC | HMT, Srinagar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -73,6 +73,173 @@
             opacity: 0.9;
         }
 
+        /* Mobile Navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-mobile {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .logo-mobile {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--black);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2rem;
+        transition: 0.5s;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}   
+@media (max-width: 768px) {
+    /* Header adjustments */
+    header {
+        padding: 1.5rem 0 1rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+    
+    /* Section adjustments */
+    .section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    /* Player cards */
+    .player-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .player-card {
+        border-width: 1px;
+    }
+    
+    /* Match cards */
+    .match-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    
+    .match-result {
+        margin-top: 0.5rem;
+        align-self: flex-end;
+    }
+    
+    /* Hero section */
+    .hero {
+        height: 40vh;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .player-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero {
+        height: 35vh;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
         /* Navigation */
         nav {
             background-color: var(--black);
@@ -172,36 +339,46 @@
         /* Match Highlight Section */
         .match-highlight {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-            margin-top: 2rem;
-            background: linear-gradient(to right, var(--off-white), var(--white));
+            flex-direction: column;
+            gap: 1.5rem;
+            background: linear-gradient(to bottom, var(--off-white), var(--white));
             padding: 1.5rem;
             border-radius: 10px;
-            border-left: 5px solid var(--gold);
+            border-top: 5px solid var(--gold);
+            border-left: none;
         }
 
         .match-highlight-img {
-            flex: 1;
-            min-width: 300px;
+            width: 100%;
             height: 200px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            min-width: auto;
         }
 
         .match-highlight-info {
-            flex: 2;
-            min-width: 300px;
+            width: 100%;
+            min-width: auto;
         }
 
         .match-highlight-score {
-            font-size: 2rem;
-            color: var(--dark-gold);
-            font-weight: bold;
-            margin: 1rem 0;
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+        }
+
+        @media (min-width: 769px) {
+            .match-highlight {
+                flex-direction: row;
+                border-left: 5px solid var(--gold);
+                border-top: none;
+            }
+            
+            .match-highlight-img {
+                width: 40%;
+                height: 200px;
+            }
+            
+            .match-highlight-info {
+                width: 60%;
+            }
         }
 
         /* Story Section */
@@ -461,14 +638,22 @@
 
     <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#matches">Matches</a></li>
-            <li><a href="#players">Players</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="logo-mobile">UFC</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#matches">Matches</a></li>
+                <li><a href="#players">Players</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Hero Section -->
