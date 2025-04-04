@@ -24,6 +24,7 @@
             background-color: var(--off-white);
             color: var(--black);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
@@ -74,196 +75,51 @@
         }
 
         /* Mobile Navigation */
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--black);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.logo-mobile {
-    color: var(--gold);
-    font-weight: 700;
-    font-size: 1.5rem;
-    display: none;
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--white);
-    margin: 5px 0;
-    transition: 0.4s;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links li {
-    margin: 0 1rem;
-}
-
-.nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-.nav-links a:hover {
-    background-color: var(--gold);
-    color: var(--black);
-}
-
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-    
-    .logo-mobile {
-        display: block;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: var(--black);
-        flex-direction: column;
-        align-items: center;
-        padding-top: 2rem;
-        transition: 0.5s;
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .nav-links li {
-        margin: 1rem 0;
-    }
-}   
-@media (max-width: 768px) {
-    /* Header adjustments */
-    header {
-        padding: 1.5rem 0 1rem;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    .tagline {
-        font-size: 1rem;
-    }
-    
-    /* Section adjustments */
-    .section {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    /* Player cards */
-    .player-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-    
-    .player-card {
-        border-width: 1px;
-    }
-    
-    /* Match cards */
-    .match-card {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-    }
-    
-    .match-result {
-        margin-top: 0.5rem;
-        align-self: flex-end;
-    }
-    
-    /* Hero section */
-    .hero {
-        height: 40vh;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.1rem;
-    }
-    
-    /* Buttons */
-    .btn {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .player-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero {
-        height: 35vh;
-    }
-    
-    .container {
-        padding: 0 1rem;
-    }
-}
-        /* Navigation */
-        nav {
+        .navbar {
             background-color: var(--black);
-            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 1rem 0;
         }
 
-        nav ul {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-icon .bar1, 
+        .menu-icon .bar2, 
+        .menu-icon .bar3 {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .nav-links {
+            display: flex;
             list-style: none;
-            padding: 0;
             margin: 0;
-            flex-wrap: wrap;
+            padding: 0;
         }
 
-        nav li {
-            margin: 0 1.5rem;
+        .nav-links li {
+            margin: 0 1rem;
         }
 
-        nav a {
+        .nav-links a {
             color: var(--white);
             text-decoration: none;
             font-weight: 600;
@@ -273,7 +129,7 @@
             transition: all 0.3s ease;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             background-color: var(--gold);
             color: var(--black);
         }
@@ -341,44 +197,33 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            align-items: center;
+            margin-top: 2rem;
             background: linear-gradient(to bottom, var(--off-white), var(--white));
             padding: 1.5rem;
             border-radius: 10px;
             border-top: 5px solid var(--gold);
-            border-left: none;
         }
 
         .match-highlight-img {
             width: 100%;
             height: 200px;
-            min-width: auto;
+            background-size: cover;
+            background-position: center;
+            background-color: #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .match-highlight-info {
             width: 100%;
-            min-width: auto;
         }
 
         .match-highlight-score {
             font-size: 1.8rem;
-            margin: 0.5rem 0;
-        }
-
-        @media (min-width: 769px) {
-            .match-highlight {
-                flex-direction: row;
-                border-left: 5px solid var(--gold);
-                border-top: none;
-            }
-            
-            .match-highlight-img {
-                width: 40%;
-                height: 200px;
-            }
-            
-            .match-highlight-info {
-                width: 60%;
-            }
+            color: var(--dark-gold);
+            font-weight: bold;
+            margin: 1rem 0;
         }
 
         /* Story Section */
@@ -591,17 +436,64 @@
                 font-size: 2.2rem;
             }
             
-            .player-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            /* Navigation */
+            .menu-icon {
+                display: block;
             }
-
-            nav ul {
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--black);
                 flex-direction: column;
                 align-items: center;
+                padding-top: 2rem;
+                transition: 0.5s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            /* Animate hamburger to X */
+            .menu-icon.change .bar1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .menu-icon.change .bar2 {
+                opacity: 0;
+            }
+            
+            .menu-icon.change .bar3 {
+                transform: rotate(45deg) translate(-5px, -6px);
             }
 
-            nav li {
-                margin: 0.5rem 0;
+            /* Match highlight */
+            .match-highlight {
+                flex-direction: column;
+                border-top: 5px solid var(--gold);
+                border-left: none;
+            }
+
+            .match-highlight-img {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .match-highlight-info {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .player-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
 
             .hero {
@@ -616,12 +508,57 @@
                 height: 300px;
             }
 
-            .match-highlight {
-                flex-direction: column;
+            .section {
+                padding: 1.5rem;
             }
 
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .match-highlight {
+                flex-direction: row;
+                border-left: 5px solid var(--gold);
+                border-top: none;
+            }
+            
             .match-highlight-img {
-                width: 100%;
+                flex: 1;
+                min-width: 300px;
+            }
+            
+            .match-highlight-info {
+                flex: 2;
+                min-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .player-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 35vh;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -637,13 +574,12 @@
     </header>
 
     <!-- Navigation -->
-    <nav>
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="logo-mobile">UFC</div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
@@ -927,6 +863,15 @@
         setInterval(() => {
             plusSlides(1);
         }, 5000);
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('change');
+        }
     </script>
 </body>
 </html>
