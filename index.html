@@ -19,13 +19,18 @@
     <!-- Google Verification -->
     <meta name="google-site-verification" content="rSqIRe0ysrX3DcNFy3-Hhd8UgjyLElSp4UOQFPwiVlA" />
 
+    <!-- Preload and Preconnect -->
+    <link rel="preload" href="images/team-hero.jpg" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBVNHXEPP9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-PBVNHXEPP9');
     </script>
 
@@ -36,9 +41,25 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Umarabad FC | HMT, Srinagar</title>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsTeam",
+      "name": "Umarabad FC",
+      "foundingDate": "2019",
+      "location": "HMT, Srinagar",
+      "logo": "https://umar-abad-fc.github.io/assets/img/umarabadlogo.png",
+      "member": {
+        "@type": "OrganizationRole",
+        "member": [
+          {"@type": "Person", "name": "Mueen Khan", "roleName": "Goalkeeper"},
+          {"@type": "Person", "name": "Sibtain Farooq", "roleName": "Captain"}
+        ]
+      }
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -49,12 +70,47 @@
             --dark-gray: #1A1A1A;
             --white: #FFFFFF;
             --off-white: #F5F5F5;
+            --transition: all 0.3s ease;
+
+            /* Dark Mode Variables */
+            --dm-bg: #121212;
+            --dm-text: #e0e0e0;
+            --dm-card-bg: #1e1e1e;
+            --dm-section-bg: #2d2d2d;
         }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--black);
+            color: white;
+            padding: 1rem;
+            z-index: 999;
+        }
+        
+        .skip-link:focus {
+            left: 0;
+        }
+        
+        /* Focus styles */
+        a:focus, button:focus {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+        }
+        
         /* Center alignment for all header elements */
         header, nav {
             text-align: center;
             margin: 0 auto;
         }
+        
         /* Base Styles */
         body {
             font-family: 'Open Sans', sans-serif;
@@ -92,6 +148,11 @@
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: rotate(5deg) scale(1.05);
         }
 
         .logo-container img {
@@ -150,17 +211,13 @@
         .nav-links {
             display: flex;
             list-style: none;
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
+            width: auto;
         }
 
         .nav-links li {
             margin: 0 1rem;
-        }
-
-        .nav-links {
-            margin: 0 auto;  <!-- FIX: Centers the links container -->
-            width: auto;     <!-- Ensures proper centering -->
         }
 
         .nav-links a {
@@ -170,7 +227,7 @@
             font-size: 1.1rem;
             padding: 0.5rem 1rem;
             border-radius: 30px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
@@ -190,16 +247,33 @@
             margin-bottom: 3rem;
         }
 
+        .hero-content {
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .hero-content h2 {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-content p {
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         /* Main Content Sections */
@@ -209,12 +283,22 @@
             padding: 0 2rem;
         }
 
+        #main-content {
+            padding-top: 1rem;
+        }
+
         .section {
             background-color: var(--white);
             padding: 2.5rem;
             border-radius: 10px;
             margin-bottom: 3rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .section-title {
@@ -257,6 +341,11 @@
             background-color: #eee;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .match-highlight-img:hover {
+            transform: scale(1.02);
         }
 
         .match-highlight-info {
@@ -348,6 +437,7 @@
             transition: transform 0.3s ease;
             text-align: center;
             border: 2px solid var(--gold);
+            position: relative;
         }
 
         .player-card:hover {
@@ -392,6 +482,21 @@
             margin-top: 0.5rem;
         }
 
+        .player-stats {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1rem;
+            transition: bottom 0.3s ease;
+        }
+
+        .player-card:hover .player-stats {
+            bottom: 0;
+        }
+
         /* Match Cards */
         .match-card {
             background-color: var(--white);
@@ -404,6 +509,15 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            transition: transform 0.3s ease;
+        }
+
+        .match-card:hover {
+            transform: translateX(5px);
+        }
+
+        .match-card.upcoming {
+            border-left-color: #2196F3;
         }
 
         .match-teams {
@@ -419,6 +533,15 @@
         .match-result {
             background-color: var(--black);
             color: var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .match-status {
+            background-color: #2196F3;
+            color: white;
             padding: 0.5rem 1.5rem;
             border-radius: 30px;
             font-weight: 700;
@@ -440,26 +563,26 @@
             color: white;
         }
 
-        /* Team Photo Hover Effects */
-        .team-photo-container:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        /* Sponsors Section */
+        .sponsors {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .team-photo-container:hover .team-photo-overlay {
+        .sponsor-logo {
+            height: 80px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .sponsor-logo:hover {
+            filter: grayscale(0%);
             opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .team-photo-container {
-                height: 250px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .team-photo-container {
-                height: 200px;
-            }
+            transform: scale(1.05);
         }
 
         /* Footer */
@@ -507,6 +630,56 @@
             color: var(--gold);
         }
 
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--black);
+            color: var(--gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            border: 2px solid var(--gold);
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: var(--dm-bg);
+            color: var(--dm-text);
+        }
+
+        body.dark-mode .section {
+            background-color: var(--dm-card-bg);
+            color: var(--dm-text);
+        }
+
+        body.dark-mode .player-card,
+        body.dark-mode .match-card {
+            background-color: var(--dm-section-bg);
+        }
+
+        body.dark-mode .section-title,
+        body.dark-mode .player-name {
+            color: var(--dm-text);
+        }
+
+        body.dark-mode .match-details {
+            color: #aaa;
+        }
+
+        /* Ensure text contrast in dark mode */
+        body.dark-mode p,
+        body.dark-mode .tagline,
+        body.dark-mode .hero-content p {
+            color: var(--dm-text);
+        }
         /* Responsive Design */
         @media (max-width: 768px) {
             .logo-container {
@@ -597,6 +770,20 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 1rem;
+            }
+
+            .newsletter-btn {
+                border-radius: 30px;
+                padding: 0.8rem;
+            }
         }
 
         @media (min-width: 769px) {
@@ -643,10 +830,61 @@
                 font-size: 0.9rem;
             }
         }
+        /* === Dark Mode Fixes for Our Story & Match Highlight Sections === */
+
+        body.dark-mode #story {
+            background: var(--dm-card-bg);
+        }
+        body.dark-mode #story p {
+            color: var(--dm-text);
+        }
+        body.dark-mode .match-highlight {
+            background: var(--dm-card-bg);
+        }
+        body.dark-mode .match-highlight-score,
+        body.dark-mode .match-highlight-info h3 {
+            color: var(--gold);
+        }
+        body.dark-mode .match-details {
+            color: var(--dm-text);
+        }
+        /* Highlight Matches Section Text */
+        body.dark-mode .match-teams {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        body.dark-mode .match-details {
+            color: #cccccc;
+            font-weight: 500;
+        }
+        .sponsor-logo {
+        height: 90px;
+        width: auto;
+        max-width: 220px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .player-stats {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 1rem;
+        transition: bottom 0.3s ease;
+        text-align: center; /* ✅ Center the text */
+    }
+
     </style>
 </head>
 
 <body>
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header with Logo -->
     <header>
         <div class="logo-container">
@@ -670,6 +908,7 @@
                 <li><a href="#matches">Matches</a></li>
                 <li><a href="#players">Players</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#sponsors">Sponsors</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -685,7 +924,7 @@
     </section>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container" id="main-content">
         <!-- Our Story Section -->
         <section class="section" id="story">
             <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
@@ -704,7 +943,9 @@
                                 background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease;
                                 display: flex; align-items: center; justify-content: center;
                                 color: white; font-weight: bold; font-size: 1.2rem;">
-                    Umarabad FC - 2024 Squad
+                            Umarabad FC - 2024-25 Squad
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -765,6 +1006,19 @@
                     <div class="match-details">January 12, 2025 | Maloora Ground</div>
                 </div>
                 <div class="match-result win">3-0</div>
+            </div>
+        </section>
+
+        <!-- Upcoming Fixtures Section -->
+        <section class="section" id="fixtures">
+            <h2 class="section-title">Upcoming Fixtures</h2>
+            
+            <div class="match-card upcoming">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">June 06, 2025 | Maloora Ground | 6:00 AM</div>
+                </div>
+                <div class="match-status">Coming Soon</div>
             </div>
         </section>
 
@@ -924,7 +1178,7 @@
                 <div class="gallery-slide" style="background-image: url('images/gallery/gallery8.jpg');"></div>
                 <div class="gallery-slide" style="background-image: url('images/gallery/gallery9.jpg');"></div>
             </div>
-            
+
             <div class="gallery-controls">
                 <div class="gallery-dots">
                     <div class="gallery-dot active" onclick="currentSlide(1)"></div>
@@ -932,6 +1186,14 @@
                     <div class="gallery-dot" onclick="currentSlide(3)"></div>
                     <div class="gallery-dot" onclick="currentSlide(4)"></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section class="section" id="sponsors">
+            <h2 class="section-title">Our Sponsors</h2>
+            <div class="sponsors">
+                <img src="images/sponsors/sponsor1.png" alt="Sponsor 1" class="sponsor-logo">
             </div>
         </section>
     </div>
@@ -950,28 +1212,39 @@
         <p>&copy; 2019 Umarabad FC. All Rights Reserved.</p>
     </footer>
 
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    
-    <!-- Gallery Slideshow Script -->
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- JavaScript -->
     <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuIcon = document.querySelector('.menu-icon');
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('change');
+        }
+
+        // Gallery Slideshow
         let slideIndex = 1;
         showSlides(slideIndex);
-        
+
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
-        
+
         function currentSlide(n) {
             showSlides(slideIndex = n);
         }
-        
+
         function showSlides(n) {
             let i;
-            let slides = document.getElementsByClassName("gallery-slide");
-            let dots = document.getElementsByClassName("gallery-dot");
+            const slides = document.getElementsByClassName("gallery-slide");
+            const dots = document.getElementsByClassName("gallery-dot");
             
-            if (n > slides.length) {slideIndex = 1}    
+            if (n > slides.length) {slideIndex = 1}
             if (n < 1) {slideIndex = slides.length}
             
             for (i = 0; i < slides.length; i++) {
@@ -985,20 +1258,75 @@
             slides[slideIndex-1].classList.add("active");
             dots[slideIndex-1].classList.add("active");
         }
-        
-        // Auto-advance slides every 5 seconds
+
+        // Auto-advance gallery slides
         setInterval(() => {
             plusSlides(1);
         }, 5000);
 
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const menuIcon = document.querySelector('.menu-icon');
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const body = document.body;
+            const darkModeToggle = document.querySelector('.dark-mode-toggle i');
             
-            navLinks.classList.toggle('active');
-            menuIcon.classList.toggle('change');
+            body.classList.toggle('dark-mode');
+            
+            // Save preference to localStorage
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            // Update icon
+            if (isDarkMode) {
+                darkModeToggle.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                darkModeToggle.classList.replace('fa-sun', 'fa-moon');
+            }
         }
+
+        // Check for saved preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.dark-mode-toggle i').classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // Team photo hover effect
+        const teamPhoto = document.querySelector('.team-photo-container');
+        const overlay = document.querySelector('.team-photo-overlay');
+        
+        teamPhoto.addEventListener('mouseenter', () => {
+            overlay.style.opacity = '1';
+        });
+        
+        teamPhoto.addEventListener('mouseleave', () => {
+            overlay.style.opacity = '0';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navLinks = document.getElementById('navLinks');
+                    const menuIcon = document.querySelector('.menu-icon');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        menuIcon.classList.remove('change');
+                    }
+                }
+            });
+        });
     </script>
 <script>
 // Auto-classify match results when page loads
@@ -1027,10 +1355,12 @@ document.addEventListener('DOMContentLoaded', function() {
             result.title = "Draw";
         }
             
-        // (Optional) Add score for screen readers
+        // Add score for screen readers
         result.setAttribute('aria-label', `${homeScore}-${awayScore} ${result.title}`);
     });
 });
 </script>
 </body>
 </html>
+                
+                
