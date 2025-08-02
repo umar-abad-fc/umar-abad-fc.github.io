@@ -877,6 +877,61 @@
         transition: bottom 0.3s ease;
         text-align: center; /* ✅ Center the text */
     }
+    /* Captains Section Styling */
+    .captain-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .captain-card {
+        background-color: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: 10px;
+        padding: 1.5rem;
+        width: 280px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        cursor: default;
+    }
+
+    .captain-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(255, 215, 0, 0.25);
+    }
+
+    .captain-card h3 {
+        margin-bottom: 0.5rem;
+        color: var(--black);
+        font-size: 1.3rem;
+    }
+
+    .captain-card p {
+        color: #666;
+        font-weight: 500;
+    }
+
+    /* Dark mode compatibility */
+    body.dark-mode .captain-card {
+        background-color: var(--dm-section-bg);
+        color: var(--dm-text);
+        border-color: var(--gold);
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.05);
+    }
+
+    body.dark-mode .captain-card:hover {
+        box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+    }
+
+    body.dark-mode .captain-card h3 {
+        color: var(--gold);
+    }
+
+    body.dark-mode .captain-card p {
+        color: var(--dm-text);
+    }
 
     </style>
 </head>
@@ -908,6 +963,7 @@
                 <li><a href="#matches">Matches</a></li>
                 <li><a href="#players">Players</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#captains">Captains</a></li>
                 <li><a href="#sponsors">Sponsors</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1213,7 +1269,7 @@
         <!-- Gallery Section -->
         <section class="section" id="gallery">
             <h2 class="section-title">Gallery</h2>
-            <p>Memories from matches, training, and community events.</p>
+            <p >Memories from matches, training, and community events.</p>
             
             <div class="gallery-slideshow">
                 <div class="gallery-slide active" style="background-image: url('images/gallery/gallery1.jpg');"></div>
@@ -1238,6 +1294,26 @@
                 </div>
         </section>
 
+        <!-- Club Captains Section -->
+        <section class="section" id="captains">
+            <h2 class="section-title">Club Captains</h2>
+            <p>A tribute to the leaders who've worn the armband for Umarabad FC.</p>
+
+            <div class="captain-cards">
+                <div class="captain-card">
+                    <h3>Dawood Malik</h3>
+                    <p>2019 – 2021</p>
+                </div>
+                <div class="captain-card">
+                    <h3>Sibtain Farooq</h3>
+                    <p>2024 – 2025</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
         <!-- Sponsors Section -->
         <section class="section" id="sponsors">
             <h2 class="section-title">Our Sponsors</h2>
@@ -1246,7 +1322,6 @@
             </div>
         </section>
     </div>
-
     <!-- Footer -->
     <footer id="contact">
         <h2>Join Our Community</h2>
