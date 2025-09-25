@@ -932,65 +932,6 @@
     body.dark-mode .captain-card p {
         color: var(--dm-text);
     }
-    #matches-container {
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-    }
-
-    /* Match card styling */
-    .match-card {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #1a1a1a; /* dark background */
-        padding: 12px 20px;
-        margin-bottom: 10px;
-        border-left: 4px solid #ffcc00; /* accent color for the left */
-        border-radius: 8px;
-        color: #fff;
-        font-family: 'Arial', sans-serif;
-        gap: 10px;
-    }
-
-    /* Team names */
-    .match-teams {
-        font-weight: bold;
-        font-size: 16px;
-    }
-
-    /* Match details */
-    .match-details {
-        font-size: 14px;
-        color: #ccc;
-        margin-top: 3px;
-    }
-
-    /* Match result */
-    .match-result {
-        font-weight: bold;
-        font-size: 18px;
-        min-width: 50px;
-        text-align: center;
-    }
-
-    /* Show More / Show Less button */
-    #toggle-btn {
-        display: block;
-        margin: 15px auto;
-        padding: 10px 25px;
-        background-color: #ffcc00;
-        color: #000;
-        font-weight: bold;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 16px;
-    }
-
-    #toggle-btn:hover {
-        background-color: #e6b800;
-    }
 
     </style>
 </head>
@@ -1083,146 +1024,143 @@
         <section class="section" id="matches">
             <h2 class="section-title">Matches & Results</h2>
             
-            <div id="matches-container">
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Eclipse United FC</div>
-                        <div class="match-details">September 16, 2025 | Birla Ground</div>
-                    </div>
-                    <div class="match-result win">12-1</div>
-                </div>
 
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Red Buns FC</div>
-                        <div class="match-details">September 07, 2025 | WHS Sports Hub</div>
-                    </div>
-                    <div class="match-result win">10-3</div>
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Eclipse United FC</div>
+                    <div class="match-details">September 16, 2025 | Birla Ground</div>
                 </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Brawlers FC</div>
-                        <div class="match-details">August 22, 2025 | Birla Ground</div>
-                    </div>
-                    <div class="match-result win">4-2</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">August 17, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">1-0</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">August 10, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">4-11</div>
-                </div>
-
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">August 03, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">5-9</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">July 20, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">8-4</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">July 06, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">5-7</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Maloora FC</div>
-                        <div class="match-details">July 04, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">7-1</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">June 29, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">3-5</div>
-                </div>
-                
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">June 15, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">7-6</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">June 6, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">6-6</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">June 1, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">5-4</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">May 25, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">8-6</div>
-                </div>
-                
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                        <div class="match-details">May 18, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">5-6</div>
-                </div>
-
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs AL Sabr FC</div>
-                        <div class="match-details">March 28, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">1-0</div>
-                </div>
-                
-                <div class="match-card">
-                    <div>
-                        <div class="match-teams">Umarabad FC vs Maloora FC</div>
-                        <div class="match-details">January 12, 2025 | Maloora Ground</div>
-                    </div>
-                    <div class="match-result win">3-0</div>
-                </div>
+                <div class="match-result win">12-1</div>
             </div>
 
-            <button id="toggle-btn">Show More</button>
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Red Buns FC</div>
+                    <div class="match-details">September 07, 2025 | WHS Sports Hub</div>
+                </div>
+                <div class="match-result win">10-3</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Brawlers FC</div>
+                    <div class="match-details">August 22, 2025 | Birla Ground</div>
+                </div>
+                <div class="match-result win">4-2</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">August 17, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">1-0</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">August 10, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">4-11</div>
+            </div>
+
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">August 03, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">5-9</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">July 20, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">8-4</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">July 06, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">5-7</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Maloora FC</div>
+                    <div class="match-details">July 04, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">7-1</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">June 29, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">3-5</div>
+            </div>
+            
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">June 15, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">7-6</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">June 6, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">6-6</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">June 1, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">5-4</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">May 25, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">8-6</div>
+            </div>
+            
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
+                    <div class="match-details">May 18, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">5-6</div>
+            </div>
+
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs AL Sabr FC</div>
+                    <div class="match-details">March 28, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">1-0</div>
+            </div>
+            
+            <div class="match-card">
+                <div>
+                    <div class="match-teams">Umarabad FC vs Maloora FC</div>
+                    <div class="match-details">January 12, 2025 | Maloora Ground</div>
+                </div>
+                <div class="match-result win">3-0</div>
+            </div>
         </section>
 
         <!-- Upcoming Fixtures Section -->
@@ -1611,37 +1549,6 @@
                     }
                 }
             });
-        });
-
-        const toggleBtn = document.getElementById('toggle-btn');
-        const container = document.getElementById('matches-container');
-        const matches = document.querySelectorAll('#matches-container .match-card');
-        let collapsed = true;
-
-        // Calculate the total height of top 5 match cards
-        function getTopFiveHeight() {
-            let height = 0;
-            matches.forEach((match, index) => {
-                if (index < 5) {
-                const style = window.getComputedStyle(match);
-                height += match.offsetHeight + parseInt(style.marginBottom, 10);
-                }
-            });
-            return height;
-        }
-
-        // Initialize container with top 5 height
-        container.style.maxHeight = getTopFiveHeight() + 'px';
-
-        toggleBtn.addEventListener('click', () => {
-            if (collapsed) {
-                container.style.maxHeight = container.scrollHeight + 'px';
-                toggleBtn.textContent = 'Show Less';
-            } else {
-                container.style.maxHeight = getTopFiveHeight() + 'px';
-                toggleBtn.textContent = 'Show More';
-            }
-            collapsed = !collapsed;
         });
     </script>
 <script>
