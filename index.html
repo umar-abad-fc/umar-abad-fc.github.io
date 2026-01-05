@@ -933,7 +933,81 @@
         color: var(--dm-text);
     }
 
+    .gallery-wrapper {
+        max-width: 900px;
+        margin: auto;
+    }
 
+    .gallery-main {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .gallery-main img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+    }
+
+    .gallery-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.6);
+        color: white;
+        border: none;
+        font-size: 2rem;
+        padding: 0.4rem 1rem;
+        cursor: pointer;
+    }
+
+    .gallery-btn.prev { left: 12px; }
+    .gallery-btn.next { right: 12px; }
+
+    .gallery-thumbs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+        margin-top: 1rem;
+    }
+
+    .gallery-thumbs img {
+        width: 100%;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 6px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: 0.3s;
+    }
+
+    .gallery-thumbs img.active,
+    .gallery-thumbs img:hover {
+        opacity: 1;
+        outline: 3px solid var(--gold);
+    }
+
+    body.dark-mode .gallery-main {
+        background-color: var(--dm-card-bg);
+    }
+
+    body.dark-mode .gallery-btn {
+        background: rgba(255,215,0,0.25);
+        color: var(--gold);
+    }
+
+    body.dark-mode .gallery-thumbs img {
+        opacity: 0.45;
+        filter: brightness(0.85);
+    }
+
+    body.dark-mode .gallery-thumbs img.active,
+    body.dark-mode .gallery-thumbs img:hover {
+        opacity: 1;
+        filter: brightness(1);
+        outline: 3px solid var(--gold);
+    }
     </style>
 </head>
 
@@ -1230,7 +1304,7 @@
             <div class="match-card upcoming">
                 <div>
                     <div class="match-teams">Umarabad FC vs Mustafabad FC</div>
-                    <div class="match-details">December 28, 2025 | Maloora Ground | 6:00 AM</div>
+                    <div class="match-details">January 11, 2026 | Birla Ground | 9:00 AM</div>
                 </div>
                 <div class="match-status">Coming Soon</div>
             </div>
@@ -1423,32 +1497,33 @@
         <!-- Gallery Section -->
         <section class="section" id="gallery">
             <h2 class="section-title">Gallery</h2>
-            <p >Memories from matches, training, and community events.</p>
-            
-            <div class="gallery-slideshow">
-                <div class="gallery-slide active" style="background-image: url('images/gallery/gallery1.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery2.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery3.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery4.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery5.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery6.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery7.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery8.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery9.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery10.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery11.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery12.jpg');"></div>
-                <div class="gallery-slide" style="background-image: url('images/gallery/gallery13.jpg');"></div>
-            </div>
+            <p>Memories from matches, training, and community events.</p>
 
-            <div class="gallery-controls">
-                <div class="gallery-dots">
-                    <div class="gallery-dot active" onclick="currentSlide(1)"></div>
-                    <div class="gallery-dot" onclick="currentSlide(2)"></div>
-                    <div class="gallery-dot" onclick="currentSlide(3)"></div>
-                    <div class="gallery-dot" onclick="currentSlide(4)"></div>
+            <div class="gallery-wrapper">
+                <div class="gallery-main">
+                    <img id="galleryMainImage" src="images/gallery/gallery1.jpg" alt="Umarabad FC Gallery">
+                    <button class="gallery-btn prev" onclick="changeImage(-1)">❮</button>
+                    <button class="gallery-btn next" onclick="changeImage(1)">❯</button>
                 </div>
+
+                <div class="gallery-thumbs">
+                    <img src="images/gallery/gallery1.jpg" onclick="selectImage(0)">
+                    <img src="images/gallery/gallery2.jpg" onclick="selectImage(1)">
+                    <img src="images/gallery/gallery3.jpg" onclick="selectImage(2)">
+                    <img src="images/gallery/gallery4.jpg" onclick="selectImage(3)">
+                    <img src="images/gallery/gallery5.jpg" onclick="selectImage(4)">
+                    <img src="images/gallery/gallery6.jpg" onclick="selectImage(5)">
+                    <img src="images/gallery/gallery7.jpg" onclick="selectImage(6)">
+                    <img src="images/gallery/gallery8.jpg" onclick="selectImage(7)">
+                    <img src="images/gallery/gallery9.jpg" onclick="selectImage(8)">
+                    <img src="images/gallery/gallery10.jpg" onclick="selectImage(9)">
+                    <img src="images/gallery/gallery11.jpg" onclick="selectImage(10)">
+                    <img src="images/gallery/gallery12.jpg" onclick="selectImage(11)">
+                    <img src="images/gallery/gallery13.jpg" onclick="selectImage(12)">
+                </div>
+            </div>
         </section>
+
 
         <!-- Club Captains Section -->
         <section class="section" id="captains">
@@ -1508,42 +1583,6 @@
             menuIcon.classList.toggle('change');
         }
 
-        // Gallery Slideshow
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            const slides = document.getElementsByClassName("gallery-slide");
-            const dots = document.getElementsByClassName("gallery-dot");
-            
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            
-            for (i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            
-            slides[slideIndex-1].classList.add("active");
-            dots[slideIndex-1].classList.add("active");
-        }
-
-        // Auto-advance gallery slides
-        setInterval(() => {
-            plusSlides(1);
-        }, 5000);
 
         // Dark Mode Toggle
         function toggleDarkMode() {
@@ -1641,6 +1680,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<script>
+    const galleryImages = [
+        "images/gallery/gallery1.jpg",
+        "images/gallery/gallery2.jpg",
+        "images/gallery/gallery3.jpg",
+        "images/gallery/gallery4.jpg",
+        "images/gallery/gallery5.jpg",
+        "images/gallery/gallery6.jpg",
+        "images/gallery/gallery7.jpg",
+        "images/gallery/gallery8.jpg",
+        "images/gallery/gallery9.jpg",
+        "images/gallery/gallery10.jpg",
+        "images/gallery/gallery11.jpg",
+        "images/gallery/gallery12.jpg",
+        "images/gallery/gallery13.jpg"
+    ];
+
+    let galleryIndex = 0;
+    const mainImage = document.getElementById("galleryMainImage");
+    const thumbs = document.querySelectorAll(".gallery-thumbs img");
+
+    function updateGallery() {
+        mainImage.src = galleryImages[galleryIndex];
+        thumbs.forEach((img, i) => {
+            img.classList.toggle("active", i === galleryIndex);
+        });
+    }
+
+    function changeImage(step) {
+        galleryIndex = (galleryIndex + step + galleryImages.length) % galleryImages.length;
+        updateGallery();
+    }
+
+    function selectImage(index) {
+        galleryIndex = index;
+        updateGallery();
+    }
+
+    document.addEventListener("keydown", e => {
+        if (e.key === "ArrowRight") changeImage(1);
+        if (e.key === "ArrowLeft") changeImage(-1);
+    });
+
+    updateGallery();
+</script>
+
 </body>
 </html>
                 
