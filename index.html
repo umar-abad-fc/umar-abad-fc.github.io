@@ -1060,6 +1060,66 @@
             color: black;
         }
     }
+    /* ===== MOBILE PLAYER LAYOUT FIX ===== */
+    @media (max-width: 768px) {
+
+        .player-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+    }
+    @media (max-width: 768px) {
+
+        .player-img {
+            height: 160px;
+        }
+
+    }
+    @media (max-width: 768px) {
+
+        .player-card {
+            padding-bottom: 0;
+            border-radius: 12px;
+        }
+
+        .player-info {
+            padding: 0.8rem;
+        }
+
+        .player-name {
+            font-size: 1rem;
+        }
+
+        .player-position {
+            font-size: 0.85rem;
+        }
+
+        .player-number {
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            font-size: 0.9rem;
+        }
+
+    }
+    @media (max-width: 768px) {
+
+        .player-stats {
+            display: none;
+        }
+
+    }
+    @media (max-width: 768px) {
+
+        #players h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+
+    }
 
     </style>
 </head>
