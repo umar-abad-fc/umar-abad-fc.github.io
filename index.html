@@ -1008,6 +1008,59 @@
         filter: brightness(1);
         outline: 3px solid var(--gold);
     }
+
+/* ===== MOBILE GALLERY FIX ===== */
+    @media (max-width: 768px) {
+
+        .gallery-main img {
+            height: 280px; /* was 450px – too big */
+            border-radius: 10px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+
+        .gallery-btn {
+            position: static;
+            transform: none;
+            background: var(--gold);
+            color: black;
+            font-size: 1.6rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+        }
+
+        .gallery-main {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .gallery-controls-mobile {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+    }
+    @media (max-width: 768px) {
+
+        .gallery-thumbs {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .gallery-thumbs img {
+            height: 60px;
+            border-radius: 8px;
+        }
+    }
+    @media (max-width: 768px) {
+        body.dark-mode .gallery-btn {
+            background: var(--gold);
+            color: black;
+        }
+    }
+
     </style>
 </head>
 
@@ -1502,8 +1555,10 @@
             <div class="gallery-wrapper">
                 <div class="gallery-main">
                     <img id="galleryMainImage" src="images/gallery/gallery1.jpg" alt="Umarabad FC Gallery">
-                    <button class="gallery-btn prev" onclick="changeImage(-1)">❮</button>
-                    <button class="gallery-btn next" onclick="changeImage(1)">❯</button>
+                    <div class="gallery-controls-mobile">
+                        <button class="gallery-btn" onclick="changeImage(-1)">◀</button>
+                        <button class="gallery-btn" onclick="changeImage(1)">▶</button>
+                    </div>
                 </div>
 
                 <div class="gallery-thumbs">
