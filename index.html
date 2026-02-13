@@ -1415,7 +1415,7 @@
             <div class="match-card upcoming">
                 <div>
                     <div class="match-teams">Umarabad FC vs Brawlers FC</div>
-                    <div class="match-details">February 15, 2026 | Birla Ground | 3:00 PM</div>
+                    <div class="match-details">February 08, 2026 | Birla Ground | 3:00 PM</div>
                 </div>
                 <div class="match-status">Coming Soon</div>
             </div>
@@ -1838,6 +1838,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     updateGallery();
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fixtureElement = document.getElementById("nextFixtureDate");
+
+        const today = new Date();
+        const dayOfWeek = today.getDay(); // 0 = Sunday
+
+        // Calculate days until next Sunday
+        let daysUntilSunday = (7 - dayOfWeek) % 7;
+        if (daysUntilSunday === 0) {
+            daysUntilSunday = 7; // If today is Sunday, show next Sunday
+        }
+
+        const nextSunday = new Date();
+        nextSunday.setDate(today.getDate() + daysUntilSunday);
+
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = nextSunday.toLocaleDateString('en-US', options);
+
+        fixtureElement.textContent = `${formattedDate} | Birla Ground | 3:00 PM`;
+    });
 </script>
 
 </body>
